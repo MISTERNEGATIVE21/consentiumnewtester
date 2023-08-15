@@ -5,7 +5,7 @@
 
 const char* ssid = "onepiece";
 const char* password = "kurohige";
-const char* serverUrl = "https://consentiuminc.onrender.com/api/board/getboards?key=6933cdc7a576ff52bc40f3e7e0f549d8"; // Replace with the server URL
+const char* serverUrl = "https://consentiuminc.online/api/board/getboards?key=6933cdc7a576ff52bc40f3e7e0f549d8"; // Replace with the server URL
 
 const int gpioPins[] = {2, 4, 5, 12, 13, 14, 15};
 const int analogPin = {0};
