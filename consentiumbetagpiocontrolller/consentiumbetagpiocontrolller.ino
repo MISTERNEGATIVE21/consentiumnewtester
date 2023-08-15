@@ -1,21 +1,11 @@
-// /***************************************************
-//   This is Consentium Inc's IoT library
-//   ----> https://consentiuminc.online/
-//   Check out the links above for our tutorials and product diagrams.
-
-//   This Consentium Inc's IoT library works only for 3.3v tolerant ESP8266/ESP32 Edge boards.  
- 
-//   Written by Debjyoti Chowdhury for Consentium Inc.
-//   MIT license, all text above must be included in any redistribution
-//  ****************************************************/
-
-
-#include <ConsentiumThingsDalton.h>
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <HTTPClient.h>
 #include <ArduinoJson.h>
 
-const char *ssid = "Normal wifi"; // add WiFi SSID
-const char *password = "sayak123"; // add WiFi password
-const char* serverUrl = "https://consentiuminc.online/api/board/getboards?key=6933cdc7a576ff52bc40f3e7e0f549d8"; // Replace with the server URL
+const char* ssid = "onepiece";
+const char* password = "kurohige";
+const char* serverUrl = "https://consentiuminc.onrender.com/api/board/getboards?key=6933cdc7a576ff52bc40f3e7e0f549d8"; // Replace with the server URL
 
 const int gpioPins[] = {2, 4, 5, 12, 13, 14, 15};
 const int analogPin = {0};
@@ -45,12 +35,12 @@ void connectToWiFi() {
 }
 
 void getAndProcessJsonData() {
-  WiFiClientSecure client;
+  //WiFiClientSecure client;
   HTTPClient http;
 
   // Make the HTTP GET request
-   http.begin(client, serverUrl);
- // http.begin(serverUrl);
+  // http.begin(client, serverUrl);
+  http.begin(serverUrl);
   int httpCode = http.GET();
 
   if (httpCode == HTTP_CODE_OK) {
